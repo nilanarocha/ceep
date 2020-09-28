@@ -1,5 +1,5 @@
-import TickButton from './components/finishTask';
-import DeletButton from './components/deletTask';
+import TickButton from './components/finishTask.js';
+import DeleteButton from './components/deleteTask.js';
 
 const creatingANewTask = (event) => {
   event.preventDefault();
@@ -14,7 +14,7 @@ const creatingANewTask = (event) => {
 
   task.innerHTML = content;
   task.appendChild(TickButton());
-  task.appendChild(DeletButton());
+  task.appendChild(DeleteButton());
   list.appendChild(task);
   input.value = ' ';
 };
