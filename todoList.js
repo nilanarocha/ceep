@@ -1,55 +1,24 @@
-(() => {
-  const creatingANewTask = (event) => {
-    event.preventDefault();
+import TickButton from './components/finishTask';
+import DeletButton from './components/deletTask';
 
-    const list = document.querySelector('[data-list]');
-    const input = document.querySelector('[data-form-input]');
-    const value = input.value;
+const creatingANewTask = (event) => {
+  event.preventDefault();
 
-    const task = document.createElement('li');
-    task.classList.add('task');
-    const content = `<p class="content">${value}</p>`;
+  const list = document.querySelector('[data-list]');
+  const input = document.querySelector('[data-form-input]');
+  const value = input.value;
 
-    task.innerHTML = content;
-    task.appendChild(TickButton());
-    task.appendChild(DeletButton());
-    list.appendChild(task);
-    input.value = ' ';
-  };
+  const task = document.createElement('li');
+  task.classList.add('task');
+  const content = `<p class="content">${value}</p>`;
 
-  const newTask = document.querySelector('[data-form-button]');
+  task.innerHTML = content;
+  task.appendChild(TickButton());
+  task.appendChild(DeletButton());
+  list.appendChild(task);
+  input.value = ' ';
+};
 
-  newTask.addEventListener('click', creatingANewTask);
+const newTask = document.querySelector('[data-form-button]');
 
-  const TickButton = () => {
-    const tickButton = document.createElement('button');
-    console.log(tickButton);
-    tickButton.classList.add('check-button');
-    tickButton.innerText = 'Finish';
-    tickButton.addEventListener('click', finishTask);
-    return tickButton;
-  };
-
-  const finishTask = (event) => {
-    const tickButton = event.target;
-
-    const taskDone = tickButton.parentElement;
-
-    taskDone.classList.toggle('done');
-  };
-
-  const DeletButton = () => {
-    const deletButton = document.createElement('button');
-
-    deletButton.innerHTML = 'Delet';
-    deletButton.addEventListener = ('click', deletTask);
-    return deletButton;
-  };
-
-  const deletTask = (event) => {
-    const deletButton = event.target;
-    const finishTask = deletButton.parentElement;
-    finishTask.remove();
-    return deletTask;
-  };
-})();
+newTask.addEventListener('click', creatingANewTask);
