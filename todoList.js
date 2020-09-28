@@ -12,6 +12,7 @@
 
     task.innerHTML = content;
     task.appendChild(TickButton());
+    task.appendChild(DeletButton());
     list.appendChild(task);
     input.value = ' ';
   };
@@ -35,5 +36,20 @@
     const taskDone = tickButton.parentElement;
 
     taskDone.classList.toggle('done');
+  };
+
+  const DeletButton = () => {
+    const deletButton = document.createElement('button');
+
+    deletButton.innerHTML = 'Delet';
+    deletButton.addEventListener = ('click', deletTask);
+    return deletButton;
+  };
+
+  const deletTask = (event) => {
+    const deletButton = event.target;
+    const finishTask = deletButton.parentElement;
+    finishTask.remove();
+    return deletTask;
   };
 })();
