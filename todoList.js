@@ -22,8 +22,9 @@
 
   const TickButton = () => {
     const tickButton = document.createElement('button');
-    tickButton.innerText = 'Finish';
+    console.log(tickButton);
     tickButton.classList.add('check-button');
+    tickButton.innerText = 'Finish';
     tickButton.addEventListener('click', finishTask);
     return tickButton;
   };
